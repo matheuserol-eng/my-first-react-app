@@ -2,21 +2,36 @@ import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
 
 const App = () => {
+    const CARDS = [
+      {
+        id: 0,
+        title: 'Card A',
+        description: 'Olá eu sou o filho do card A'
+      },
+       {
+        id: 1,
+        title: 'Card B',
+        description: 'Olá eu sou o filho do card B'
+      },
+       {
+        id: 2,
+        title: 'Card C',
+        description: 'Olá eu sou o filho do card C'
+      }
+    ]
+
+
   return (
     <main className=" bg-slate-50">
       <h1 className="text-3x1 font-bold text-slate-800">
         Hello Tailwind + React!
       </h1>
       <div className="container mx-auto p-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <Card title="Card A">
-          <p>Oi, eu sou o filho</p>
-        </Card>
-        <Card title="Card B">
-          <p>Oi, eu sou filho</p>
-        </Card>
-        <Card title="Card C">
-          <p>Oi, eu sou filho</p>
-        </Card>
+        {CARDS.map(item =>(
+          <Card key={item.id} title={item.title}>
+            <p>{item.description}</p>
+          </Card>
+        ))}
       </div>
 
 
