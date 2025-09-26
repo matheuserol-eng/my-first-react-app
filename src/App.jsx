@@ -2,25 +2,27 @@ import { Card } from "./components/Card";
 import { Hello } from "./components/Hello";
 
 const App = () => {
+  const [count, setCount] = useState(0)
+
     const CARDS = [
       {
         id: 0,
         title: 'Card A',
-        description: 'Olá eu sou o filho do card A'
+        description: 'Olá eu sou filho do card A'
       },
-       {
+      {
         id: 1,
         title: 'Card B',
-        description: 'Olá eu sou o filho do card B'
+        description: 'Olá eu sou filho do card B'
       },
-       {
+      {
         id: 2,
         title: 'Card C',
-        description: 'Olá eu sou o filho do card C'
+        description: 'Olá eu sou filho do card C'
       }
     ]
 
-
+  const inc = () => setCount(c => c + 1)
   return (
     <main className=" bg-slate-50">
       <h1 className="text-3x1 font-bold text-slate-800">
@@ -40,6 +42,9 @@ const App = () => {
       </a>
 
       <Hello name="Matheus" />
+      <button onClick={inc} className="bg-blue-500 text-neutral-50 px-4 py-2 rounded-2x1 cursor-pointer">
+        Count: {count}
+      </button>
     </main>
   );
 }
